@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Project app</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+	<header>	
+		{{> navigation }}
+	</header>
+	{{!-- <div style="display: inline-block; ">
+		<aside>
+			<div class="aside" id="aside">
+				<button id="btn"><i class="fa fa-arrow-left"></i></button>
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum optio corrupti ipsam quas, atque aspernatur. Ab
+				eos natus nesciunt expedita tempore atque, libero ipsa impedit asperiores facilis vero culpa a!
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus suscipit voluptate dolores nisi quas molestias
+				odio. Nisi, nulla dicta ipsam sed neque minima mollitia quisquam facilis, quas aperiam dolores fugiat!
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt sapiente pariatur eos praesentium maxime
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus suscipit voluptate dolores nisi quas molestias
+				odio. Nisi, nulla dicta ipsam sed neque minima mollitia quisquam facilis, quas aperiam dolores fugiat!
+				facilis, quas aperiam dolores fugiat!
+			</div>
+		</aside> --}}
+		<main class="container">
+			{{> messages }}
+			{{> errors }}
+			{{{ body }}}
+		</main>
+	</div>
+	
+	<footer>Footer</footer>
+</body>
+</html>

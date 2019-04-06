@@ -1,0 +1,14 @@
+{{#if error}}
+	<div id="error">
+		{{error}}
+		<button type="button" class="icono"><i class="fa fa-times"></i></button>
+	</div>
+{{/if}}
+
+{{#each errors}}
+	<div id="errors">
+		{{text}}
+		{{errors}}
+		<button type="button" class="icono"><i class="fa fa-times"></i></button>
+	</div>
+{{/each}}

@@ -6,7 +6,7 @@ router.get('/controlPanelChannel/controlPanel/:id', isAuthenticated, async (req,
 	/* const tmp = req.session.passport.user; */
 	/* const channel = await Channel.findById(req.params.id); */
 	const channel = await Channel.find({userChannel: req.user});
-	console.log(channel);
+	/* console.log(channel); */
 	// console.log(req.user);
 	res.render('controlPanelChannel/controlPanel', { channel });
 });

@@ -14,9 +14,10 @@ router.get('/controlPanelChannel/controlPanel', isAuthenticated, async (req, res
 	/* const channel = await Channel.findById(req.params.id); */
 	const categories = await Categories.find();
 	const channel = await Channel.find({userChannel: req.user});
-	const channelTitle = channel[0].title;
+	/* const channelTitle = channel[0].title.toLowerCase(); */
 	/* console.log(categories); */
 	res.render('controlPanelChannel/controlPanel', { channel, categories});
+
 });
 
 /* router.get('/controlPanelChannel/controlPanel/:id', async (req ,res) => {

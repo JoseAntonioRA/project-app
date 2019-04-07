@@ -1,9 +1,13 @@
+.hidden{
+	display: none;
+}
+
 .contentNano{
 	opacity: 0;
 	overflow: hidden;
 	clear: both;
 	position: absolute;
-	top: 110px;
+	top: 125px;
 	height: 0;
 	
 }

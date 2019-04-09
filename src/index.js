@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+const morgan = require('morgan');
 
 // Initializations
 const app = express();
@@ -23,6 +24,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 // Middlewares
+app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}))
 app.use(methodOverride('_method'));
 app.use(session({
@@ -49,6 +51,7 @@ app.use((req, res, next) => {
 app.use(require('./routes/index'));
 app.use(require('./routes/users'));
 app.use(require('./routes/controlPanelChannel'));
+app.use(require('./routes/categories'));
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));

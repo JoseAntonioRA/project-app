@@ -1,14 +1,25 @@
 {{#each channel}}
-	<div class="panelControl">
-		<form action="/controlPanelChannel/ControlPanel/{{userChannel}}" class="formPanelControl" method="POST">
-			<input type="hidden" name="__method" value="PUT">
-				<label for="title">Título</label>
-				<input type="search" name="title" id="title" cols="30" rows="10" value="{{title}}">
-				<br><br>
-				<label for="category">Categoría</label>
-				<input type="search" name="category" id="category" value="{{category}}">
-				<br><br>
-				<input type="submit" value="Actualizar información">
-		</form>
-	</div>
+<div class="panelControl">
+	<form class="formPanelControl" id="formPanelControl">
+		<input type="hidden" name="__method" value="PUT">
+		<label for="title">Título</label>
+		<input type="search" name="title" id="title" value="{{title}}">
+		<br><br>
+		<label for="category">Categoría</label>
+		<input data-search type="search" id="category" autocomplete="off" value="{{category}}">
+
+		<br><br>
+		<input type="submit" value="Actualizar información" id="btn-update">
+	</form>
+</div>
 {{/each}}
+
+<div class="contentNano">
+	<div id="about" class="nano">
+		<div class="content" id="content">
+			{{#each categories}}
+			<button data-filter-item data-filter-name="{{name}}" value="{{name}}" type="submit" class="btn-category">{{name}}</button>
+			{{/each}}
+		</div>
+	</div>
+</div>

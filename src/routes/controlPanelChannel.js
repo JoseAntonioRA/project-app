@@ -1,14 +1,23 @@
 const router = require('express').Router();
 const Channel = require('../models/Channel');
+const Categories = require('../models/Categories');
 const { isAuthenticated } = require('../helpers/auth');
 
-router.get('/controlPanelChannel/controlPanel/:id', isAuthenticated, async (req, res) => {
+/* router.get('/controlPanelChannel/controlPanel', isAuthenticated, (req, res) => {
+	res.json({
+		products: ['product1', 'product2']
+	});
+}); */
+
+router.get('/controlPanelChannel/controlPanel', isAuthenticated, async (req, res) => {
 	/* const tmp = req.session.passport.user; */
 	/* const channel = await Channel.findById(req.params.id); */
+	const categories = await Categories.find();
 	const channel = await Channel.find({userChannel: req.user});
-	/* console.log(channel); */
-	// console.log(req.user);
-	res.render('controlPanelChannel/controlPanel', { channel });
+	/* const channelTitle = channel[0].title.toLowerCase(); */
+	/* console.log(categories); */
+	res.render('controlPanelChannel/controlPanel', { channel, categories});
+
 });
 
 /* router.get('/controlPanelChannel/controlPanel/:id', async (req ,res) => {
@@ -17,13 +26,16 @@ router.get('/controlPanelChannel/controlPanel/:id', isAuthenticated, async (req,
 }); */
 
 /* router.post('/controlPanelChannel/controlPanel', isAuthenticated, async (req, res) => {
+	
 	const {title, category} = req.body;
-	const errors = [];
+	/*const errors = [];
 
 	Channel.findByIdAnd(req.id);
 
 	req.flash('success_msg', 'Datos añadidos correctamente');
-	res.redirect('/controlPañnelChannel/controlPanel');
-}); */
+	const channel = await Channel.find({userChannel: req.user});
+	console.log(title, category);
+	res.render('controlPanelChannel/controlPanel', { channel });
+});*/ 
 
 module.exports = router;

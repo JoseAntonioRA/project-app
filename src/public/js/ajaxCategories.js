@@ -28,26 +28,28 @@ $('[data-search]').on('keyup', function() {
 
 $('.contentNano').on('click', function (event) {
 	$('#category').val(event.target.value); // Obtengo el valor del target que se ha hecho clic y lo paso al input con la id #category
-	$(".contentNano").css("display", "none");
+	$(".contentNano").css("display", "none"); // CAMBIARLO
 });
 
 $(function() {
 	$('#formPanelControl').on('submit', function (event) {
 		event.preventDefault();
-
+		
 		let newCategory = $('#category');
 		let newTitle = $('#title');
-		
+
 		$.ajax({
-			url: '/controlPanelChannel/controlPanel/categories',
 			method: 'PUT',
 			data: {
 				title: newTitle.val(),
 				category: newCategory.val()
 			},
-			/* success: function (response) {
-				console.log(response);
-			} */
-		})
-	})
+			success: function () {
+				$("#successMessage").css("display", "block");
+			},
+			error: function (err){
+				console.log(err);
+			}
+		});
+	});
 });

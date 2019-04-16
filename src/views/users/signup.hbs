@@ -1,25 +1,31 @@
-<h1 class="titulo">Registrate</h1>
-<hr class="border">
-<form action="" method="POST" class="formulario" name="signup">
-	<div class="form-group">
-		<i class="icono izquierda fa fa-user"></i><input type="text" value="{{user}}" name="user" class="usuario" placeholder="Usuario">
-	</div>
+<div class="containerLogin">
+	<h1 class="titulo">Registrate</h1>
+	<hr class="border">
+	<form action="" method="POST" class="formulario" name="signup">
+		<div class="form-group">
+			<i class="icono izquierda fa fa-user"></i><input type="text" value="{{user}}" name="user" class="usuario"
+				placeholder="Usuario">
+		</div>
 
-	<div class="form-group">
-		<i class="icono izquierda fa fa-envelope"></i><input type="text" value="{{email}}" name="email" class="email" placeholder="Email">
-	</div>
+		<div class="form-group">
+			<i class="icono izquierda fa fa-envelope"></i><input type="text" value="{{email}}" name="email"
+				class="email" placeholder="Email">
+		</div>
 
-	<div class="form-group">
-		<i class="icono izquierda fa fa-lock"></i><input type="password" value="{{password}}" name="password" class="password" placeholder="Contraseña">
-	</div>
+		<div class="form-group">
+			<i class="icono izquierda fa fa-lock"></i><input type="password" value="{{password}}" name="password"
+				class="password" placeholder="Contraseña">
+		</div>
 
-	<div class="form-group">
-		<i class="icono izquierda fa fa-lock"></i><input type="password" value="{{password2}}" name="password2" class="password_btn" placeholder="Repetir Contraseña">
-		<i class="submit-btn fa fa-arrow-right" onclick="signup.submit()"></i>
-	</div>
-</form>
+		<div class="form-group">
+			<i class="icono izquierda fa fa-lock"></i><input type="password" value="{{password2}}" name="password2"
+				class="password_btn" placeholder="Repetir Contraseña">
+			<i class="submit-btn fa fa-arrow-right" onclick="signup.submit()"></i>
+		</div>
+	</form>
 
-<p class="texto-registrate">
-	¿ Ya tienes cuenta ?
-	<a href="signin">Iniciar Sesión</a>
-</p>
+	<p class="texto-registrate">
+		¿ Ya tienes cuenta ?
+		<a href="signin">Iniciar Sesión</a>
+	</p>
+</div>

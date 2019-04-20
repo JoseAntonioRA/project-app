@@ -116,6 +116,7 @@ header .menu .icono {
 
 .containerMain {
 	width: 100%;
+	margin: auto;
 }
 
 .containerMain .panelControl .formPanelControl {

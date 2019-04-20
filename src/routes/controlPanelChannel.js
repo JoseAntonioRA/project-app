@@ -20,6 +20,23 @@ router.get('/controlPanelChannel/controlPanel', isAuthenticated, async (req, res
 
 });
 
+router.put('/controlPanelChannel/controlPanel', async (req, res) => {
+	const channel = await Channel.find({userChannel: req.user});
+	await Channel.findByIdAndUpdate(channel[0]._id, {live: true});
+	
+	/* const channel = await Channel.find({userChannel: req.user});
+	channel.forEach(channel => {
+		if (channel.live) {
+			res.redirect('channel/channel', {channel});
+		}
+	}); */
+});
+
+/* router.put('/controlPanelChannel/controlPanel', async (req, res) => {
+	
+	
+}); */
+
 /* router.get('/controlPanelChannel/controlPanel/:id', async (req ,res) => {
 	const channel = await Channel.find({userChannel: req.user});
 	res.render('controlPanelChannel/controlPanel', { channel });

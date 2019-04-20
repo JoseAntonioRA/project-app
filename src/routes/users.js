@@ -45,6 +45,7 @@ router.post('/users/signup', async (req, res) => {
 			const newChannel = new Channel({
 				title: '',
 				category: '',
+				live: false,
 				userChannel: newUser._id
 			});
 			await newChannel.save();

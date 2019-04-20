@@ -21,6 +21,4 @@ router.put('/controlPanelChannel/controlPanel', isAuthenticated, async (req, res
 	res.json('recibido');
 }) */
 
-
-
 module.exports = router;

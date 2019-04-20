@@ -57,6 +57,20 @@ app.use(require('./routes/channel'));
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Config Server RTMP
+const config = {
+	rtmp: {
+	  port: 1935,
+	  chunk_size: 60000,
+	  gop_cache: true,
+	  ping: 30,
+	  ping_timeout: 60
+	}
+  };
+   
+var nms = new NodeMediaServer(config)
+nms.run();
+
 // Server start
 app.listen(app.get('port'), () => {
 	console.log('Server on port', app.get('port'));

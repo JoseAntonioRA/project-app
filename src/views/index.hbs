@@ -1,12 +1,27 @@
 <div>
 	<h1>Hello {{ user.user }}</h1>
 	{{#each channel}}
-		<p>{{title}}</p>
+	<p>{{title}}</p>
 	{{/each}}
-	<script>
-
-	</script>
 	<h1>Index</h1>
-	
-</div>
 
+</div>
+<div id="player" style="width:600px;height:450px;margin:0 auto;text-align:center"></div>
+<script>
+	$f("player", "http://releases.flowplayer.org/swf/flowplayer-3.2.16.swf", {
+		clip: {
+			url: 'rtmp://localhost:8000/live/test',
+			live: true,
+			scaling: 'fit',
+			provider: 'influxis'
+		},
+
+		plugins: {
+			influxis: {
+				url: "flowplayer.rtmp-3.2.13.swf",
+
+				netConnectionUrl: 'rtmp://localhost:8000/live/test'
+			}
+		}
+	});
+</script>

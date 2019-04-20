@@ -1,20 +1,19 @@
 const router = require('express').Router();
-const Categories = require('../models/Categories');
 const Channel = require('../models/Channel');
-const morgan = require('morgan');
 const { isAuthenticated } = require('../helpers/auth');
 
 
-/* router.get('/controlPanelChannel/controlPanel/categories', isAuthenticated, async (req, res) => {
-	const categories = await Categories.find();
-	res.json(categories)
-}); */
+// router.get('/controlPanelChannel/successAjax', (req, res) => {
+// 	/* const categories = await Categories.find();
+// 	res.json(categories) */
+// 	res.render('controlPanelChannel/successAjax');
+// });
 
-router.put('/controlPanelChannel/ControlPanel/categories', isAuthenticated, async (req, res) => {
+router.put('/controlPanelChannel/controlPanel', isAuthenticated, async (req, res) => {
 	const { title, category } = req.body;
 	const channel = await Channel.find({userChannel: req.user});
 	await Channel.findByIdAndUpdate(channel[0]._id, {title, category});
-	/* console.log(chanelUpdate); */
+	res.send();
 });
 
 /* router.put('/controlPanelChannel/ControlPanel:id', (req, res) => {

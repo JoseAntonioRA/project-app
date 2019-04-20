@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/main.css" id="styles">
 	<link rel="stylesheet" href="/css/scroll.css">
+<<<<<<< HEAD
 	<script src="http://releases.flowplayer.org/js/flowplayer-3.2.12.min.js"></script>
 	{{!-- <script>
 		let is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
@@ -17,6 +18,8 @@
 			$("#styles").attr("href", "/css/main-chrome.css");
 		}
 	</script> --}}
+=======
+>>>>>>> 4b34a60afb716027c3d05bdfd983da1cb42d8ecb
 </head>
 <body>
 	<header>
@@ -36,7 +39,8 @@
 				facilis, quas aperiam dolores fugiat!
 			</div>
 		</aside> --}}
-	<main class="container">
+	<main class="containerMain">
+		{{> successAjax}}
 		{{> messages }}
 		{{> errors }}
 		{{{ body }}}
@@ -44,8 +48,12 @@
 	</div>
 
 	<footer>Footer</footer>
+<<<<<<< HEAD
 	<script src="/js/jquery-3.3.1.js"></script>
 	<script src="http://releases.flowplayer.org/js/flowplayer-3.2.12.min.js"></script>
+=======
+	<script src="/js/jquery-3.3.1.min.js"></script>
+>>>>>>> 4b34a60afb716027c3d05bdfd983da1cb42d8ecb
 	<script src="/js/nanoScroller.min.js"></script>
 	<script src="/js/usingScroll.js"></script>
 	<script src="/js/ajaxCategories.js"></script>

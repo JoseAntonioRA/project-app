@@ -114,7 +114,19 @@ header .menu .icono {
 	vertical-align: top;
 }
 
-.container {
+.containerMain {
+	width: 100%;
+}
+
+.containerMain .panelControl .formPanelControl {
+	width: 300px;
+	background: #fff;
+	padding: 30px;
+	margin-bottom: 30px;
+	margin: auto;
+}
+
+.containerLogin {
 	max-width: 500px;
 	width: 90%;
 	margin: auto;

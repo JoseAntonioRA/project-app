@@ -1,7 +1,9 @@
 const router = require('express').Router();
+const Channel = require('../models/Channel');
 
-router.get('/', (req, res) => {
-	res.render('Index');
+router.get('/', async (req, res) => {
+	const channel = await Channel.find();
+	res.render('Index', {channel});
 });
 
 module.exports = router;

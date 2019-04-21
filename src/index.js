@@ -6,6 +6,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const morgan = require('morgan');
+const NodeMediaServer = require('node-media-server');
 
 // Initializations
 const app = express();

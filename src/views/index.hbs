@@ -2,11 +2,11 @@
 	<h1>Hello {{ user.user }}</h1>
 	{{#each channel}}
 	<p>{{title}}</p>
-	{{#if live}}
-		<a href="http://localhost:3000/channel/channel/{{userChannel}}">
-			<h1>Enlace de streamer</h1>
-		</a>
-	{{/if}}
+		{{#if live}}
+			<a href="http://localhost:3000/channel/channel/{{userChannel}}">
+				<h1>Enlace de streamer</h1>
+			</a>
+		{{/if}}
 	{{/each}}
 	
 	<h1>Index</h1>

@@ -25,7 +25,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 // Middlewares
-app.use(morgan('dev'));
+/* app.use(morgan('dev')); */
 app.use(express.urlencoded({extended: false}))
 app.use(methodOverride('_method'));
 app.use(session({

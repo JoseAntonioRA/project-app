@@ -3,7 +3,7 @@
 $( "#category").focus(function() {
 	$(".contentNano").css("opacity", "1");
 	$(".contentNano").css("display", "block");
-	$(".contentNano").css("height", "300px");
+	$(".contentNano").css("height", "310px");
 	$(".contentNano").css("transition", "all 1s linear 0.98s, all 0.20s linear");
 });
 
@@ -11,7 +11,7 @@ $( "#category").focus(function() {
 $("#category").focusout(function() {
 	$(".contentNano").css("opacity", "0");
 	$(".contentNano").css("transition", "all 0s linear 0.98s, all 0.20s linear");
-	$(".contentNano").css("height", "300px");
+	$(".contentNano").css("height", "0px");
 });
 
 // filtrado de busqueda

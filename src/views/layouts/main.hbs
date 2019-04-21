@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,19 @@
 	<title>Project app</title>
 	<link rel="stylesheet" href="/css/normalize.css">
 	<link rel="stylesheet" href="/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/css/main.css" id="styles">
 	<link rel="stylesheet" href="/css/scroll.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/mdb.css">
+	<link rel="stylesheet" href="/css/main.css" id="styles">
 	<script src="http://releases.flowplayer.org/js/flowplayer-3.2.12.min.js"></script>
 </head>
+
 <body>
 	<header>
 		{{> navigation }}
 	</header>
-	<main class="containerMain">
+	<main style="margin-top: 100px;">
 		{{> successAjax}}
 		{{> messages }}
 		{{> errors }}
@@ -25,9 +30,19 @@
 
 	<footer>Footer</footer>
 	<script src="/js/jquery-3.3.1.js"></script>
+	<script src="/js/popper.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/mdb.min.js"></script>
 	<script src="http://releases.flowplayer.org/js/flowplayer-3.2.12.min.js"></script>
 	<script src="/js/nanoScroller.min.js"></script>
 	<script src="/js/usingScroll.js"></script>
 	<script src="/js/ajaxCategories.js"></script>
+	{{!-- <script>
+		$('.nav-item').on('click', function (event) {
+			$('li.active').removeClass('active');
+			$(this).addClass('active');
+		});
+	</script> --}}
 </body>
+
 </html>

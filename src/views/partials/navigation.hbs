@@ -1,40 +1,87 @@
-<nav>
-	<div class="menu izq">
-		<a href="/">logo</a>
-		<a href="/">Inicio</a>
-		<a href="#">Explorar</a>
-
-		<li class="dropdown">
-			<a href="#" class="dropbtn"><i class="fa fa-ellipsis-h" style="font-size:18px;"></i></a>
-			<div class="dropdown-content">
-				<a href="#">Acerca de</a>
-			</div>
-		</li>
-		<i class="izquierda icono fa fa-search"></i><input type="search" name="search" id="search" placeholder="Buscar">
-	</div>
-	
-	<div class="menu der">
-		{{#if user}}
-		<li class="dropdown">
-			{{ user.user }}
-			<a href="#" class="dropbtn"><i class="fa fa-caret-down" style="font-size:18px;"></i></a>
-			<div class="dropdown-content" style="padding: 6px">
-				<a href="/channel/channel/{{user._id}}">Channel<i class="fa fa-video-camera"></i></a>
-				<a href="/controlPanelChannel/controlPanel">Panel de control del creador<i class="fa fa-gear" style="margin-left: 6px;"></i></a>
-				<hr>
-				<a href="/users/logout">Cerrar Sesión<i class="fa fa-sign-out" style="margin-left: 6px;"></i></a>
-				
-			</div>
-		</li>
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1 fixed-top">
+	<a class="navbar-brand" href="/"><img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"
+			class="rounded-circle z-depth-0" alt="avatar image"></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+		aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+		
+		<ol class="navbar-nav mr-auto sidenav" id="navAccordion">
+			<li class="nav-item mt-3" >
+				<a class="nav-link" href="#">Canales que sigo <span class="sr-only">(current)</span></a>
+			</li>
 			
-		{{else}}
-			<a href="/users/signin">Conectase</a>
-			<a href="/users/signup">Registrarse</a>
-		{{/if}}
+			<li>
+				<hr style="background: rgba(0, 0, 0, 0.2); height: 1px;">
+			</li>
+			<li class="nav-item">
+
+				<a class="nav-link" href="#">
+					<img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt=""
+						style="border-radius: 3px;">
+						<p style="display: inline; font-size: 14px;">Nextlol</p>
+					<div style="float: right; display: inline; line-height: 2;">
+						<i class="fas fa-circle" style="font-size: 10px; color:#f44242;"></i>
+					</div>
+				</a>
+			</li>
+			{{!-- <li class="nav-item">
+				<a class="nav-link" href="#">Item 2</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Item 3</a>
+			</li> --}}
+		</ol>
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="/">Inicio
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">explorar</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false" style="line-height: 27px;">
+					<i class="fa fa-ellipsis-h "></i>
+				</a>
+				<div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+					<a class="dropdown-item" href="#">Acerca de</a>
+				</div>
+			</li>
+			<div class="form-group has-search">
+				<span class="fa fa-search form-control-feedback"></span>
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</ul>
+		<ul class="navbar-nav ml-auto nav-flex-icons">
+			{{#if user}}
+			<p style="width: 130px;"></p>
+
+			<li class="nav-item avatar dropdown">
+				<a class="nav-link" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">
+					<img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0"
+						alt="avatar image">
+				</a>
+				<div class="dropdown-menu dropdown-menu-right dropdown-secondary"
+					aria-labelledby="navbarDropdownMenuLink-55">
+					<a class="dropdown-item" href="/channel/channel/{{user._id}}"><i class="fas fa-video"></i>
+						Channel</a>
+					<a class="dropdown-item" href="/controlPanelChannel/controlPanel"><i class="fas fa-cog"></i> Panel
+						de control del creador</a>
+					<a class="dropdown-item" href="/users/logout"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+				</div>
+			</li>
+			{{else}}
+			<li class="nav-item">
+				<a class="nav-link" href="/users/signin">Conectarse</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/users/signup">Registrarse</a>
+			</li>
+			{{/if}}
+		</ul>
 	</div>
 </nav>
-
-
-
-	
-

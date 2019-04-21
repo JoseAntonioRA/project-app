@@ -1,25 +1,60 @@
-<div "containerMain">
+<div class="container">
 	{{#each channel}}
-	<div class="panelControl">
-		<form class="formularioo" id="formPanelControl">
-			<input type="hidden" name="__method" value="PUT">
-			<div class="form-group">
-				<label for="title">Título</label>
-				<input type="search" name="title" id="title" value="{{title}}">
+	<div class="row mt-5">
+		<div class="col-xs-12 col-sm-12 col-md-5 offset-1">
+			<div class="card">
+				<div class="card-body">
+					<form id="formPanelControl">
+						<p class="h4 text-center py-4" style="color: #000;">Información de emisión</p>
+						<div class="md-form">
+							<i class="fas fa-pencil-alt prefix grey-text"></i>
+							<textarea id="title" class="md-textarea form-control" value="">{{title}}</textarea>
+							<label for="materialFormCardNameEx" class="font-weight-light">Titulo (140)</label>
+						</div>
+
+						<div class="md-form">
+							<i class="fas fa-gamepad prefix grey-text"></i>
+							<input data-search type="search" id="category" class="form-control" value="{{category}}"
+								autocomplete="off">
+							<label for="materialFormCardPasswordEx" class="font-weight-light">Categoria</label>
+						</div>
+
+						<div class="text-center py-4 mt-3">
+							<button class="btn" style="background: #4e4376; color: #fff; font-weight: 600;" id="btn-update" type="submit">Actualizar información</button>
+						</div>
+					</form>
+				</div>
 			</div>
-			
-			<div class="form-group">
-				<label for="category">Categoría</label>
-				<i class="icono izquierda fa fa-search"></i><input data-search type="search" id="category" autocomplete="off" value="{{category}}">
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-5">
+			<div class="card" style="width: 450px; height: 28rem;">
+				<div class="card-body">
+					<p class="h4 text-center py-4" style="color: #000;">Vista preliminar del stream</p>
+					<div id="player" style="width:400px;height:300px;margin:0 auto;text-align:center"></div>
+				</div>
 			</div>
-			<br><br>
-			<input type="submit" value="Actualizar información" id="btn-update">
-		</form>
-		<form class="" id="formLive">
-			<input type="hidden" name="method" value="true">
-			<input type="submit" value="Iniciar Stream" id="">
-		</form>
+
+			<script>
+				$f("player", "http://releases.flowplayer.org/swf/flowplayer-3.2.16.swf", {
+					clip: {
+						url: 'rtmp://localhost:1935/live/{{userChannel}}',
+						live: true,
+						scaling: 'fit',
+						provider: 'influxis'
+					},
+
+					plugins: {
+						influxis: {
+							url: "flowplayer.rtmp-3.2.13.swf",
+
+							netConnectionUrl: 'rtmp://localhost:1935/live/{{userChannel}}'
+						}
+					}
+				});
+			</script>
+		</div>
 	</div>
+
 	{{/each}}
 	<div class="contentNano">
 		<div id="about" class="nano">

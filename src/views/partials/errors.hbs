@@ -1,14 +1,20 @@
+{{!-- Error al intentar loguearte e insertas un usuario o password incorrecto  --}}
 {{#if error}}
-	<div id="error">
+	<div class="alert alert-danger alert-dismissible fade show" role="alert">
 		{{error}}
-		<button type="button" class="icono"><i class="fa fa-times"></i></button>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
 	</div>
 {{/if}}
 
+{{!-- Error al intentar registrarte e irsertar datos incorrectos --}}
 {{#each errors}}
-	<div id="errors">
+	<div class="alert alert-danger alert-dismissible fade show" role="alert">
 		{{text}}
 		{{errors}}
-		<button type="button" class="icono"><i class="fa fa-times"></i></button>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
 	</div>
 {{/each}}

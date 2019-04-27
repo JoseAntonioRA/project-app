@@ -1,18 +1,22 @@
-<div class="containerMain">hello channel</div>
-<div id="player" style="width:600px;height:450px;margin:0 auto;text-align:center"></div>
+<div class="">{{user.user}}</div>
+<div id="player" style="width:1250px;height:700px;" ></div>
+{{#each channel}}
+	<div><label>{{title}}</label></div>
+	<div><label>categoria: {{category}}</label></div>
+{{/each}}
 <script>
 	$f("player", "http://releases.flowplayer.org/swf/flowplayer-3.2.16.swf", {
 		clip: {
 			url: 'rtmp://localhost:1935/live/{{id}}',
 			live: true,
 			scaling: 'fit',
-			provider: 'influxis'
+			provider: 'influxis',
+			autoPlay: false
 		},
 
 		plugins: {
 			influxis: {
 				url: "flowplayer.rtmp-3.2.13.swf",
-
 				netConnectionUrl: 'rtmp://localhost:1935/live/{{id}}'
 			}
 		}

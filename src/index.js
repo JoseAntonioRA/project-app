@@ -54,6 +54,8 @@ app.use(require('./routes/users'));
 app.use(require('./routes/controlPanelChannel'));
 app.use(require('./routes/categories'));
 app.use(require('./routes/channel'));
+app.use(require('./routes/userProfile'));
+
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));

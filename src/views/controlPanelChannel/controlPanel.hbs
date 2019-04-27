@@ -1,7 +1,7 @@
 <div class="container">
 	{{#each channel}}
 	<div class="row mt-5">
-		<div class="col-xs-12 col-sm-12 col-md-5 offset-1">
+		<div class="col-md-12 col-lg-6">
 			<div class="card">
 				<div class="card-body">
 					<form id="formPanelControl">
@@ -20,17 +20,18 @@
 						</div>
 
 						<div class="text-center py-4 mt-3">
-							<button class="btn" style="background: #4e4376; color: #fff; font-weight: 600;" id="btn-update" type="submit">Actualizar información</button>
+							<button class="btn" style="background: #4e4376; color: #fff; font-weight: 600;"
+								id="btn-update" type="submit">Actualizar información</button>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-5">
-			<div class="card" style="width: 450px; height: 28rem;">
+		<div class="col-md-12 col-lg-6">
+			<div class="card" {{!-- style="width: 450px; height: 28rem;" --}}>
 				<div class="card-body">
 					<p class="h4 text-center py-4" style="color: #000;">Vista preliminar del stream</p>
-					<div id="player" style="width:400px;height:300px;margin:0 auto;text-align:center"></div>
+					<div id="player" style="width:420px;height:305px;margin:0 auto;text-align:center"></div>
 				</div>
 			</div>
 
@@ -40,7 +41,8 @@
 						url: 'rtmp://localhost:1935/live/{{userChannel}}',
 						live: true,
 						scaling: 'fit',
-						provider: 'influxis'
+						provider: 'influxis',
+						autoPlay: false
 					},
 
 					plugins: {

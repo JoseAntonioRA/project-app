@@ -20,11 +20,13 @@
 	<header>
 		{{> navigation }}
 	</header>
-	<main style="margin-top: 100px;">
-		{{> successAjax}}
-		{{> messages }}
-		{{> errors }}
-		{{{ body }}}
+	<main class="content-wrapper" style="margin-top: 100px;">
+		<div class="container-fluid">
+			{{> successAjax}}
+			{{> messages }}
+			{{> errors }}
+			{{{ body }}}
+		</div>
 	</main>
 	</div>
 

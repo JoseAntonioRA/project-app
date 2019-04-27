@@ -11,7 +11,7 @@ $( "#category").focus(function() {
 $("#category").focusout(function() {
 	$(".contentNano").css("opacity", "0");
 	$(".contentNano").css("transition", "all 0s linear 0.98s, all 0.20s linear");
-	$(".contentNano").css("height", "0px");
+	$(".contentNano").css("height", "310px");
 });
 
 // filtrado de busqueda
@@ -52,4 +52,8 @@ $(function() {
 			}
 		});
 	});
+});
+
+$('#btn-successAjax').on('click', function (){
+	$('#successMessage').hide();
 });

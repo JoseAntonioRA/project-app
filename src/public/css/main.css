@@ -193,6 +193,7 @@ ul .active {
 }
 .navbar.navbar-dark .navbar-nav .nav-item.active > .nav-link {
 	background: transparent;
+	height: 48px;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -242,9 +243,13 @@ img {
 	  margin-top: 4.2rem;
 	  background: #343a40;
 	  box-sizing: border-box;
-	  /* border-top: 2px solid rgba(0, 0, 0, 0.2); */
+	  border-top: 2px solid rgba(0, 0, 0, 0.2);
+	}
+	.navbar-expand-lg .sidenav {
+		flex-direction: column;
+	}
+	
+	.content-wrapper {
+		margin-left: 230px;
 	}
 } 
-.navbar-expand-lg .sidenav {
-	flex-direction: column;
-}

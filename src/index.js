@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const morgan = require('morgan');
 const NodeMediaServer = require('node-media-server');
+const multer = require('multer');
 
 // Initializations
 const app = express();
@@ -26,7 +27,9 @@ app.set('view engine', '.hbs');
 
 // Middlewares
 /* app.use(morgan('dev')); */
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: false}));
+
+
 app.use(methodOverride('_method'));
 app.use(session({
 	secret: 'mysecretapp',
@@ -35,6 +38,14 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+const storage = multer.diskStorage({
+	destination: path.join(__dirname, 'public/img/uploads/'),
+	filename: (req, file, cb, filename) => {
+		cb(null, file.originalname);
+	}
+});
+app.use(multer({storage: storage}).single('image'));
 app.use(flash());
 
 
@@ -55,6 +66,7 @@ app.use(require('./routes/controlPanelChannel'));
 app.use(require('./routes/categories'));
 app.use(require('./routes/channel'));
 app.use(require('./routes/userProfile'));
+app.use(require('./routes/disableAccount'));
 
 
 // Static Files

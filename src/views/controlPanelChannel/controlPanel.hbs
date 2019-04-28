@@ -1,4 +1,5 @@
 <div class="container">
+	{{> successAjax}}
 	{{#each channel}}
 	<div class="row mt-5">
 		<div class="col-md-12 col-lg-6">
@@ -20,7 +21,7 @@
 						</div>
 
 						<div class="text-center py-4 mt-3">
-							<button class="btn" style="background: #4e4376; color: #fff; font-weight: 600;"
+							<button class="btn btn-block" style="background: #4e4376; color: #fff; font-weight: 600;"
 								id="btn-update" type="submit">Actualizar información</button>
 						</div>
 					</form>
@@ -63,7 +64,7 @@
 			<div class="content" id="content">
 				{{#each categories}}
 				<button data-filter-item data-filter-name="{{name}}" value="{{name}}" type="submit"
-					class="btn-category">{{name}}</button>
+					class="btn btn-category">{{name}}</button>
 				{{/each}}
 			</div>
 		</div>

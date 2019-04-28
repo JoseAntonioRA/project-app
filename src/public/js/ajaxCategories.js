@@ -54,6 +54,5 @@ $(function() {
 	});
 });
 
-$('#btn-successAjax').on('click', function (){
-	$('#successMessage').hide();
-});
+
+

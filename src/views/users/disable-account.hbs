@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<h1 class="h1 text-center">Configuración del Perfil</h1>
+	<div class="row mt-5">
+		<div class="col-md-12 col-lg-6">
+			<div style="">
+				<div style="width: 30%; margin: auto;">
+					<img src="/img/crying.png" style="height: auto;" alt="">
+				</div>
+				<h6 class="h6 mt-5 px-2"><strong>Desactivar cuenta</strong></h6>
+				<label class="px-2 grey-text" style="font-size: 12px;">
+					Lamentamos que quiera
+					abandonar nuestra comunidad,
+					Espero que su tiempo aquí haya sido de su agrado
+					Y que en un futuro desee regresar.
+				</label>
+			</div>
+
+			<div class="card mt-3">
+				<div class="card-body">
+					{{> successAjaxAvatar}}
+					<form action="/users/disable-account" method="POST" id="formAccountDisable">
+						<div class="md-form">
+							<i class="fas fa-user prefix grey-text"></i>
+							<input type="text" id="user" name="user" class="form-control disabled grey-text"
+								value="{{user.user}}" autocomplete="off">
+							<label for="materialFormCardPasswordEx" class="font-weight-light">Nombre de Usuario</label>
+						</div>
+						<div class=" mt-2">
+							<button class="btn"
+								style="background: #4e4376; color: #fff; font-weight: 600; padding: 10px;"
+								id="btn-update-profile-1" type="submit">Darse de baja</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

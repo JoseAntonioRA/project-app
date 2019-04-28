@@ -1,6 +1,5 @@
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1 fixed-top">
-	<a class="navbar-brand" href="/"><img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"
-			class="rounded-circle z-depth-0" alt="avatar image"></a>
+	<a class="navbar-brand" href="/"><img src="/img/uploads/logo.png" class="rounded-circle z-depth-0" alt="avatar image" style="height: 40px"></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
 		aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -62,12 +61,12 @@
 			<li class="nav-item avatar dropdown">
 				<a class="nav-link" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false">
-					<img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0"
+					<img src="/img/uploads/{{user.filename}}" id="imgProfile" class="rounded-circle z-depth-0"
 						alt="avatar image">
 				</a>
 				<div class="dropdown-menu dropdown-menu-right dropdown-secondary"
 					aria-labelledby="navbarDropdownMenuLink-55">
-					<a href=""><img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt=""><label for="" style="margin-left: 5px;">{{user.user}}</label></a>
+					<a href=""><img src="/img/uploads/{{user.filename}}" class="rounded-circle z-depth-0" alt=""><label for="" style="margin-left: 5px;">{{user.user}}</label></a>
 					<hr>
 					<a class="dropdown-item" href="/channel/channel/{{user._id}}"><i class="fas fa-video"></i>
 						Channel</a>

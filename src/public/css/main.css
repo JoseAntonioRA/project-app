@@ -193,7 +193,7 @@ ul .active {
 }
 .navbar.navbar-dark .navbar-nav .nav-item.active > .nav-link {
 	background: transparent;
-	height: 48px;
+	height: 40px;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -253,3 +253,15 @@ img {
 		margin-left: 230px;
 	}
 } 
+
+.disabledAccount {
+	color: #4e4376;
+}
+
+.disabledAccount:hover {
+	color: #4e4376;
+}
+
+.custom-file-label::after {
+	content: 'Selecciona un avatar';
+}

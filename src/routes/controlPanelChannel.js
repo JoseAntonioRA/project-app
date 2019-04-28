@@ -24,7 +24,6 @@ router.put('/controlPanelChannel/controlPanel', async (req, res) => {
 	/* const channel = await Channel.find({userChannel: req.user});
 	await Channel.findByIdAndUpdate(channel[0]._id, {live: true}); */
 	const {title, category} = req.body;
-	console.log(title);
 	const channel = await Channel.find({userChannel: req.user});
 	await Channel.findByIdAndUpdate(channel[0]._id, {title, category});
 	

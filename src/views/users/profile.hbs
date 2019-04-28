@@ -1,8 +1,76 @@
-<div>hola usuario este es tu perfil de configuración</div>
+<div class="container-fluid">
+	<h1 class="h1 text-center">Configuración del Perfil</h1>
+	<div class="row mt-5">
+		<div class="col-md-12 col-lg-6">
+			<h6 class="h6 px-2 mb-3"><strong>Imagen de perfil</strong></h6>
+			<p class="px-2" style="font-size: 12px; color:#696969">Cambiar el avatar del perfil de usuario</p>
+			<div class="card">
 
-<form action="/users/profile" method="POST" enctype="multipart/form-data">
-	<input type="file" name="avatarProfile">
-	<button type="submit">
-		Upload
-	</button>
-</form>
+				<div class="card-body">
+					{{> successAjax}}
+					<form id="formProfile" action="/users/profile" enctype="multipart/form-data">
+						<div class="md-form">
+							<div class="input-group">
+								<div class="custom-file">
+									<i class="far fa-images prefix grey-text" style="line-height: 1.4"></i>
+									<input type="file" class="custom-file-input" id="filename" name="image"
+										value="{{user.filename}}">
+									<label class="custom-file-label" for="filename" aria-describedby="filenameAddon"
+										id="labelFile">{{user.filename}}</label>
+								</div>
+							</div>
+							<div style="width: 100px; margin: auto;">
+								<img src="/img/uploads/{{user.filename}}" id="imgProfile-p" style="height: 80px;" class="rounded-circle z-depth-0 mt-5" alt="avatar image">
+							</div>
+							
+						</div>
+						<input type="hidden" id="user" value="{{user.user}}">
+						<div class="py-4 mt-3>>">
+							<button class="btn"
+								style="background: #4e4376; color: #fff; font-weight: 600; padding: 10px; float: right;"
+								id="btn-update-profile" type="submit">Actualizar Avatar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<h6 class="h6 mt-5 px-2"><strong>Ajustes de perfil</strong></h6>
+			<p class="px-2" style="font-size: 12px; color:#696969">Cambiar los datos de identificación de tu cuenta</p>
+			<div class="card mt-3">
+				<div class="card-body">
+					{{> successAjaxAvatar}}
+					<form id="formProfileUserEmail">
+						<div class="md-form">
+							<i class="fas fa-user prefix grey-text"></i>
+							<input type="text" id="userName" class="form-control" value="{{user.user}}" autocomplete="off">
+							<label for="materialFormCardPasswordEx" class="font-weight-light">Actualiza tu Nombre de Usuario</label>
+						</div>
+
+						<div class="md-form">
+							<i class="fas fa-envelope prefix grey-text"></i>
+							<input type="text" id="email" class="form-control" value="{{user.email}}"
+								autocomplete="off">
+							<label for="materialFormCardPasswordEx" class="font-weight-light">Actualiza tu Dirección Email</label>
+						</div>
+						<div class=" mt-2">
+							<button class="btn"
+								style="background: #4e4376; color: #fff; font-weight: 600; padding: 10px;"
+								id="btn-update-profile-1" type="submit">Actualizar información</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<h6 class="h6 mt-5 px-2"><strong>Como desactivar tu cuenta de Watch</strong></h6>
+			<p class="px-2" style="font-size: 12px; color:#696969">desactiva por completo tu cuenta para siempre</p>
+
+			<p></p>
+			<div class="card mt-3">
+				<div class="card-body">
+					<label class="badge badge-danger" for="">Desactivar cuenta en Watch</label>
+					<label class="mx-3" for="" style="display: inline; font-size: 13px">Si quieres desactivar tu cuenta
+						de Watch, puedes hacerlo desde la página <a class="disabledAccount" href="/users/disable-account">Desactivar cuenta.</a></label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

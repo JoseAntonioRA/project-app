@@ -1,9 +1,74 @@
-<div class="">{{user.user}}</div>
-<div id="player" style="width:1250px;height:700px;" ></div>
-{{#each channel}}
-	<div><label>{{title}}</label></div>
-	<div><label>categoria: {{category}}</label></div>
-{{/each}}
+<div class="row">
+	<div class="col-md-9">
+		<nav class="navbar navbar-expand-lg navbar-dark secondary-color">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+				aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav mr-auto">
+					<img src="/img/uploads/{{userChannel.filename}}" class="rounded-circle z-depth-0"
+						alt="avatar image">
+					<li class="nav-item">
+
+						<a class="nav-link" href="#">{{userChannel.user}}
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="followersId" href="#">Seguidores {{followers}}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="followedId" href="#">Siguiendo {{followed}}</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav">
+					<form action="/channel/channel/{{userChannel._id}}" id="formFollow" method="POST">
+						<ul class="navbar-nav ml-auto nav-flex-icons">
+							<li class="nav-item">
+								{{#if user}}
+									{{#if follow}}
+									<button class="btn" id="btn-follow" style="padding: 0px;" type="submit">
+										<a class="nav-link">
+											<i class="fas fa-heart redFollow" id="heart"></i>
+										</a>
+									</button>
+									{{else}}
+									<button class="btn shadoww" id="btn" style="padding: 0px;"
+										type="submit">
+										<a class="nav-link">
+											<i class="fas fa-heart" id="heart"></i>
+										</a>
+									</button>
+									{{/if}}
+								{{/if}}
+							</li>
+						</ul>
+					</form>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-9">
+		<div id="player" style="width:100%;height:700px;"></div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-9">
+		{{#each channel}}
+		<div style="width: 100%; border: 1px solid rgb(196, 196, 196, 0.8); padding: 10px;">
+			<h5>Titulo: {{title}}</h5>
+			<div>
+				<img src="/img/uploads/city.jpg" style="height: 60px; border: 1px solid rgba(83, 83, 83, 0.8);" alt="">
+
+				<label class="badge badge-secondary">categoria: {{category}}</label>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+</div>
+
 <script>
 	$f("player", "http://releases.flowplayer.org/swf/flowplayer-3.2.16.swf", {
 		clip: {

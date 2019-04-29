@@ -8,9 +8,8 @@ const UserSchema = new Schema({
 	password: {type: String, required: true},
 	date: {type: Date, default: Date.now},
 	filename: {type: String},
-	originalname: {type: String},
-	mimtype: {type: String}, 
-
+	followed: {type: Array},
+	followers: {type: Array}
 });
 
 UserSchema.methods.encryptPassword = async (password) => {

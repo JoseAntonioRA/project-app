@@ -52,6 +52,30 @@ $(function() {
 			}
 		});
 	});
+
+	$('#formLive').on('submit', function (event) {
+		event.preventDefault();
+
+		$.ajax({
+			method: 'POST',
+			success: function () {
+				$('#live-online-circle').toggleClass("redFollow");
+				$('#live-online-circle').css("background", "#f44242");
+				$('#live-online-label').toggleClass("badge-danger");
+				$('#live-online-circle').toggleClass("gray");
+				$('#live-online-label').toggleClass("badge-light");
+				$('#live-online-label').text("Parar Retransmisión");
+
+				if ($('#live-online-circle').hasClass("gray")) {
+					$('#live-online-circle').css("background", "gray");
+					$('#live-online-label').text("Iniciar Retransmisión");
+				}
+			},
+			error: function (err){
+				console.log(err);
+			}
+		});
+	});
 });
 
 

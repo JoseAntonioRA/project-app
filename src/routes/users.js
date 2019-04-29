@@ -43,8 +43,6 @@ router.post('/users/signup', async (req, res) => {
 				email, 
 				password,
 				filename: 'default-avatar.png',
-				originalname: '',
-				mimtype: ''
 			});
 			newUser.password = await newUser.encryptPassword(password);
 			await newUser.save();

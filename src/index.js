@@ -7,15 +7,20 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const morgan = require('morgan');
 const NodeMediaServer = require('node-media-server');
+
 const multer = require('multer');
+
+
 
 // Initializations
 const app = express();
 require('./database');
 require('./config/passport');
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
 // Settings
-app.set('port', process.env.PORT || 3000);
+/* http('port', process.env.PORT || 3000); */
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
 	defaultLayout: 'main',
@@ -88,7 +93,32 @@ const config = {
 var nms = new NodeMediaServer(config)
 nms.run();
 
-// Server start
-app.listen(app.get('port'), () => {
-	console.log('Server on port', app.get('port'));
+
+// Configuración del chat.
+io.sockets.on('connection', function(socket){
+	socket.on('username', function (username) {
+		socket.username = username;
+		io.emit("is_online", "<i>" + socket.username + " se ha unido al chat...</i>");
+	});
+
+	socket.on("disconnect", function(username) {
+		io.emit(
+			"is_online",
+			"<i>" + socket.username + "ha dejado el chat... </i>"
+		);
+	});
+
+	socket.on("chat_message", function(message) {
+		io.emit(
+			"chat_message",
+			"<strong>" + socket.username + "</strong>: " + message
+		);
+	});
+	
 });
+
+// Server start
+http.listen(3030, function(){
+	console.log('Server listening on port *:3030');
+  });
+

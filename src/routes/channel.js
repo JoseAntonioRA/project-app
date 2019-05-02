@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const Channel = require('../models/Channel');
+
 const { isAuthenticated } = require('../helpers/auth');
 
 router.get('/channel/channel/:id', async (req, res) => {
@@ -27,7 +28,7 @@ router.get('/channel/channel/:id', async (req, res) => {
 });
 
 
-router.post('/channel/channel/:id', isAuthenticated, async (req, res) => {
+router.put('/channel/channel/:id', isAuthenticated, async (req, res) => {
 	let url = req.url;
 	let id = url.substring(17);
 	let userLoged = req.user.user;
@@ -42,5 +43,30 @@ router.post('/channel/channel/:id', isAuthenticated, async (req, res) => {
 	/* let arrayFollowers = userChannel.followers; */
 	res.render('channel/channel');
 });
+
+/* io.sockets.on("connection", function (socket) {
+	socket.on("username", (req , res) => {
+		socket.username = req.user.user;
+		io.emit("is_online", "<i>" + socket.username + " se une al chat..</i>");
+	});
+});
+
+io.on('connection', function(socket){
+	socket.on('chat message', function(msg){
+		 console.log('message: ' + msg);
+	});
+});
+
+io.on('connection', function(socket){
+  console.log('an user connected');
+  socket.on('disconnect', function(){
+	  console.log('user disconnected');
+	});
+}); */
+
+
+/* router.post('/channel/channel/:id', isAuthenticated, async (req, res) => {
+
+}); */
 
 module.exports = router;

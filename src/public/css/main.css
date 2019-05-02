@@ -303,3 +303,14 @@ img {
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
+.chatTextarea {
+	position: absolute;
+	width: 93%;
+	background:#fff;
+	word-wrap: break-word;
+	padding: 15px;
+	list-style: none;
+	
+}
+
+

@@ -10,7 +10,7 @@ $(function () {
 		console.log(numFollowerLess);
 
 		$.ajax({
-			method: 'POST',
+			method: 'PUT',
 			success: function () {
 
 				/* $('#followersId').text.load(''); */

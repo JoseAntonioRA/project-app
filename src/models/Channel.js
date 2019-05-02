@@ -6,7 +6,9 @@ const ChannelSchema = new Schema({
 	title: {type: String},
 	category: {type: String},
 	live: {type: Boolean},
-	userChannel: {type: Schema.ObjectId, ref: User}
+	userChannel: {type: Schema.ObjectId, ref: User},
+	userName: {type: String},
+	filename: {type: String}
 });
 
 module.exports = mongoose.model("Channel", ChannelSchema);

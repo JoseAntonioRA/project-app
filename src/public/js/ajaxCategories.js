@@ -2,16 +2,18 @@
 // mostrar contenedor del buscador
 $( "#category").focus(function() {
 	$(".contentNano").css("opacity", "1");
+	$(".contentNano").css("z-index", "2000");
 	$(".contentNano").css("display", "block");
 	$(".contentNano").css("height", "310px");
-	$(".contentNano").css("transition", "all 1s linear 0.98s, all 0.20s linear");
+	$(".contentNano").css("transition", "all 1s linear 0.98s, all 0.23s linear");
 });
 
 // ocultar contenedor del buscador
 $("#category").focusout(function() {
 	$(".contentNano").css("opacity", "0");
-	$(".contentNano").css("transition", "all 0s linear 0.98s, all 0.20s linear");
-	$(".contentNano").css("height", "310px");
+	$(".contentNano").css("transition", "all 0s linear 0.98s, all 0.23s linear");
+	$(".contentNano").css("height", "250px");
+	$(".contentNano").css("z-index", "-1");
 });
 
 // filtrado de busqueda

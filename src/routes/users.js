@@ -51,7 +51,9 @@ router.post('/users/signup', async (req, res) => {
 				title: '',
 				category: '',
 				live: false,
-				userChannel: newUser._id
+				userChannel: newUser._id,
+				userName: user,
+				filename: 'default-avatar.png',
 			});
 			await newChannel.save();
 			req.flash('success_msg', 'Se ha registrado correctamente');

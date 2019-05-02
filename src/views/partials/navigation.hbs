@@ -34,7 +34,7 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">explorar</a>
+				<a class="nav-link" href="/categories/categories">explorar</a>
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true"
@@ -94,7 +94,7 @@
 			{{/if}}
 		</ul>
 	</div>
-	<div class="contentNano" style="top:45px; left:340px; position:fixed;">
+	{{!-- <div class="contentNano" style="top:45px; left:340px; position:fixed;">
 		<div id="about" class="nano" style="width: 400px;">
 			<div class="content" id="content">
 				{{#each channel}}
@@ -105,18 +105,9 @@
 				{{/each}}
 			</div>
 		</div>
-	</div>
+	</div> --}}
 </nav>
 
-<script>
-	$(document).ready(function () {
-
-		var data = ["item1", "item2", "item3", "item4", "alpha", "beta", "cappa", "sigma"];
-		$("#query").typeahead({ source: data });
-
-	});
-
-</script>
 <script>
 	// mostrar contenedor del buscador
 	$("#search").focus(function () {

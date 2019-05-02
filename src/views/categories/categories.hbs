@@ -1,0 +1,17 @@
+<div class="container-fluid">
+	<h3 class="mb-3 blackOpacity">Categorias</h3>
+	<div class="row">
+		{{#each categories}}
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1 mr-5">
+				<a class="" href="/channels-category/channels/{{name}}">
+					<img class="categories" src="/img/categories/{{filename}}" alt="Card image cap">
+					<div class="card mb-4" style="width: 162px; height:60px; border-radius: 0 0px 3px 3px; background: transparent;">
+						<div class="card-body">
+							<h5 class="card-title" style="font-size: 12px;">{{name}}</h5>
+						</div>
+					</div>
+				</a>
+			</div>
+		{{/each}}
+	</div>
+</div>

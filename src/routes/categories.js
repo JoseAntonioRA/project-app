@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const Channel = require('../models/Channel');
+const Categories = require('../models/Categories');
 const { isAuthenticated } = require('../helpers/auth');
 
 
-// router.get('/controlPanelChannel/successAjax', (req, res) => {
-// 	/* const categories = await Categories.find();
-// 	res.json(categories) */
-// 	res.render('controlPanelChannel/successAjax');
-// });
+router.get('/categories/categories', async (req, res) => {
+	const categories = await Categories.find();
+	res.render('categories/categories', {categories});
+});
 
 router.put('/controlPanelChannel/controlPanel', isAuthenticated, async (req, res) => {
 	const { title, category } = req.body;

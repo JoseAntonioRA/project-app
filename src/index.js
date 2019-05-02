@@ -67,6 +67,8 @@ app.use(require('./routes/categories'));
 app.use(require('./routes/channel'));
 app.use(require('./routes/userProfile'));
 app.use(require('./routes/disableAccount'));
+app.use(require('./routes/channels-category.js'));
+
 
 
 // Static Files

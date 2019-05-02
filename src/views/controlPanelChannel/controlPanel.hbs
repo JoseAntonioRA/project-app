@@ -1,8 +1,9 @@
 <div class="container">
-	
 	{{#each channel}}
 	<div class="row mt-5 text-center">
+		
 		<div class="col-md-12">
+			
 			<form id="formLive" method="POST">
 				{{#if live}}
 					<button class="btn" type="submit" style="box-shadow: none; width: 80px;">
@@ -18,12 +19,12 @@
 			</form>
 		</div>
 	</div>
-
-	<div class="row mt-5">
+{{> successAjax}}
+	<div class="row mt-3">
 		<div class="col-md-12 col-lg-6">
 			<div class="card">
 				<div class="card-body">
-					{{> successAjax}}
+					
 					<form id="formPanelControl">
 						<p class="h4 text-center py-4" style="color: #000;">Información de emisión</p>
 						<div class="md-form">
@@ -51,12 +52,11 @@
 			<div class="card" {{!-- style="width: 450px; height: 28rem;" --}}>
 				<div class="card-body">
 					<p class="h4 text-center py-4" style="color: #000;">Vista preliminar del stream</p>
-					<div id="player" style="width:100%;height:305px;margin:0 auto;text-align:center"></div>
+					<div id="player" style="width:100%;height:309px;margin:0 auto;text-align:center"></div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	{{/each}}
 	<div class="contentNano">
 		<div id="about" class="nano">

@@ -75,7 +75,7 @@
 	</div>
 	<div class="col-md-3">
 		<form class="formChat" id="formChat" action="/channel/channel/{{userChannel}}" method="POST">
-			<textarea id="text" class="form-control" rows="2" style="width: 100%;resize: none;"></textarea>
+			<textarea placeholder="Enviar un mensaje" id="text" class="form-control" rows="2" style="width: 100%;resize: none;"></textarea>
 			<button type="submit" class="btn info-color" style="padding: 7px; font-size: 12px; float:right; color:#fff;">Enviar</button>
 		</form>
 	</div>
@@ -114,7 +114,7 @@
 	socket.on('is_online', function(username){
 		$('#messages').append($('<li>').html(username));
 	});
-
+	
 	socket.emit('username', "{{user.user}}");
 
 	

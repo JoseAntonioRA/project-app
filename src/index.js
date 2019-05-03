@@ -97,14 +97,22 @@ nms.run();
 // Configuración del chat.
 io.sockets.on('connection', function(socket){
 	socket.on('username', function (username) {
-		socket.username = username;
+		if (username == "") {
+			socket.username = "guest";
+		} else {
+			socket.username = username;
+		}
+		
 		io.emit("is_online", "<i>" + socket.username + " se ha unido al chat...</i>");
 	});
 
 	socket.on("disconnect", function(username) {
+		if (username == "") {
+			username = "guest";
+		}
 		io.emit(
 			"is_online",
-			"<i>" + socket.username + "ha dejado el chat... </i>"
+			"<i>" + socket.username + " ha dejado el chat... </i>"
 		);
 	});
 

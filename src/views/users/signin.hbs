@@ -1,8 +1,11 @@
 <div class="containerLogin">
+	
 	<h1 class="titulo">Iniciar Sesión</h1>
+	{{> errors }}
 	<hr class="border1">
 
 	<form action="/users/signin" method="POST" class="formulario" name="signin">
+	
 		<div class="form-group">
 			<i class="icono izquierda fa fa-envelope"></i><input type="text" name="email" class="email"
 				placeholder="Email">
@@ -11,7 +14,7 @@
 		<div class="form-group">
 			<i class="icono izquierda fa fa-lock"></i><input type="password" name="password" class="password_btn"
 				placeholder="Contraseña">
-			<i class="submit-btn fa fa-arrow-right" onclick="signin.submit()"></i>
+			<i class="submit-btn fa fa-arrow-right info-color" onclick="signin.submit()"></i>
 		</div>
 	</form>
 

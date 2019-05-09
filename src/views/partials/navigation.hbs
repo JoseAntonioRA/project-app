@@ -8,23 +8,22 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent-555">
 		<ol class="navbar-nav mr-auto sidenav" id="navAccordion">
 			<li class="nav-item mt-3">
-				<a class="nav-link" href="#">Canales que sigo <span class="sr-only">(current)</span></a>
+				<a class="nav-link" href="#">Canales que sigo</a>
 			</li>
 
 			<li>
 				<hr style="background: rgba(0, 0, 0, 0.2); height: 1px;">
 			</li>
 			<li class="nav-item">
-					{{#each user.followed}}
+				{{#each user.followed}}
 					<a class="nav-link" href="http://localhost:3030/channel/channel/{{id}}">
-						<img src="/img/uploads/{{filename}}" class="rounded-circle z-depth-0"
-						alt="avatar image">
+						<img src="/img/uploads/{{filename}}" class="rounded-circle z-depth-0" alt="avatar image">
 						<p style="display: inline; font-size: 14px;">{{name}}</p>
 						<div style="float: right; display: inline; line-height: 2.4;">
-							<i class="fas fa-circle" style="font-size: 10px; color:#f44242;"></i>
+							<i class="fas fa-video" style="font-size: 10px;"></i>
 						</div>
 					</a>
-					{{/each}}
+				{{/each}}
 				</a>
 			</li>
 		</ol>
@@ -36,108 +35,72 @@
 			<li class="nav-item">
 				<a class="nav-link" href="/categories/categories">explorar</a>
 			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false" style="line-height: 27px;">
-					<i class="fa fa-ellipsis-h "></i>
-				</a>
-				<div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
-					<a class="dropdown-item" href="#">Acerca de</a>
-				</div>
-			</li>
+			
 			<div class="form-group has-search">
 				<span class="fa fa-search form-control-feedback"></span>
-				<input data-search type="search" id="search" class="form-control" placeholder="Search"
+				<input type="search" id="autocomplete" class="form-control" placeholder="Search"
 					autocomplete="off">
 			</div>
-
-			{{!-- <div class="input-group">
-                <input type="text" class="form-control typeahead border-primary border-right-0" name="query" id="query" placeholder="Start typing something to search..." data-provide="typeahead" autocomplete="off">
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-outline-primary border-left-0">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </div> --}}
 		</ul>
 		<ul class="navbar-nav ml-auto nav-flex-icons">
 			{{#if user}}
-			<p style="width: 130px;"></p>
+				<p style="width: 130px;"></p>
 
-			<li class="nav-item avatar dropdown">
-				<a class="nav-link" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false">
-					<img src="/img/uploads/{{user.filename}}" id="imgProfile" class="rounded-circle z-depth-0"
-						alt="avatar image">
-				</a>
-				<div class="dropdown-menu dropdown-menu-right dropdown-secondary"
-					aria-labelledby="navbarDropdownMenuLink-55">
-					<a href=""><img src="/img/uploads/{{user.filename}}" class="rounded-circle z-depth-0" alt=""><label
-							for="" style="margin-left: 5px;">{{user.user}}</label></a>
-					<hr>
-					<a class="dropdown-item" href="/channel/channel/{{user._id}}"><i class="fas fa-video"></i>
-						Channel</a>
-					<a class="dropdown-item" href="/controlPanelChannel/controlPanel"><i class="fas fa-cog"></i> Panel
-						de control del creador</a>
-					<a class="dropdown-item" href="/users/profile"><i class="fas fa-user-cog"></i> Configuración de
-						Perfil</a>
-					<a class="dropdown-item" href="/users/logout"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
-				</div>
-			</li>
+				<li class="nav-item avatar dropdown">
+					<a class="nav-link" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">
+						<img src="/img/uploads/{{user.filename}}" id="imgProfile" class="rounded-circle z-depth-0"
+							alt="avatar image">
+					</a>
+					<div class="dropdown-menu dropdown-menu-right dropdown-secondary"
+						aria-labelledby="navbarDropdownMenuLink-55">
+						<a href=""><img src="/img/uploads/{{user.filename}}" class="rounded-circle z-depth-0" alt=""><label
+								for="" style="margin-left: 5px;">{{user.user}}</label></a>
+						<hr>
+						<a class="dropdown-item" href="/channel/channel/{{user._id}}"><i class="fas fa-video"></i>
+							Channel</a>
+						<a class="dropdown-item" href="/controlPanelChannel/controlPanel"><i class="fas fa-cog"></i> Panel
+							de control del creador</a>
+						<a class="dropdown-item" href="/users/profile"><i class="fas fa-user-cog"></i> Configuración de
+							Perfil</a>
+						<a class="dropdown-item" href="/users/logout"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+					</div>
+				</li>
 			{{else}}
-			<li class="nav-item">
-				<a class="nav-link" href="/users/signin">Conectarse</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/users/signup">Registrarse</a>
-			</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/users/signin">Conectarse</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/users/signup">Registrarse</a>
+				</li>
 			{{/if}}
 		</ul>
 	</div>
-	{{!-- <div class="contentNano" style="top:45px; left:340px; position:fixed;">
-		<div id="about" class="nano" style="width: 400px;">
-			<div class="content" id="content">
-				{{#each channel}}
-				<a href="/users/profile">
-					<button data-filter-item data-filter-name="{{title}}" value="{{title}}" type="submit"
-						class="btn-category">{{title}}</button>
-				</a>
-				{{/each}}
-			</div>
-		</div>
-	</div> --}}
 </nav>
 
 <script>
-	// mostrar contenedor del buscador
-	$("#search").focus(function () {
-		$(".contentNano").css("opacity", "1");
-		$(".contentNano").css("display", "block");
-		$(".contentNano").css("height", "310px");
-		$(".contentNano").css("transition", "all 1s linear 0.98s, all 0.20s linear");
-	});
-
-	// ocultar contenedor del buscador
-	$("#search").focusout(function () {
-		$(".contentNano").css("opacity", "0");
-		$(".contentNano").css("transition", "all 0s linear 0.98s, all 0.20s linear");
-		$(".contentNano").css("height", "310px");
-	});
-
-	// filtrado de busqueda
-	$('[data-search]').on('keyup', function () {
-		var searchVal = $(this).val();
-		var filterItems = $('[data-filter-item]');
-		if (searchVal != '') {
-			filterItems.addClass('hidden');
-			$('[data-filter-item][data-filter-name*="' + searchVal + '"]').removeClass('hidden');
-		} else {
-			filterItems.removeClass('hidden');
+	var tags = "";
+	$.ajax({
+		url: '/searchUsers',
+		method: 'get',
+		success: function (response) {
+			tags = response;
+			console.log(tags);
+		},
+		error: function (err) {
+			console.log(err);
 		}
 	});
-
-	$('.contentNano').on('click', function (event) {
-		$('#search').val(event.target.value); // Obtengo el valor del target que se ha hecho clic y lo paso al input con la id #category
-		$(".contentNano").css("display", "none"); // CAMBIARLO
+	$("#autocomplete").autocomplete({
+		source: function (request, response) {
+			var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+			response($.grep(tags, function (item) {
+				$('#ui-id-1').css("z-index", "1200");
+				return matcher.test(item.label);
+			}));
+		},
+		select: function (event, ui, item) {
+			window.location.href = '/channel/channel/' + ui.item.url;
+		}
 	});
 </script>

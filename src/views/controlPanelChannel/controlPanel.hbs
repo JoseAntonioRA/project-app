@@ -1,9 +1,7 @@
 <div class="container">
 	{{#each channel}}
-	<div class="row mt-5 text-center">
-		
+	<div class="row mt-5 text-center ">
 		<div class="col-md-12">
-			
 			<form id="formLive" method="POST">
 				{{#if live}}
 					<button class="btn" type="submit" style="box-shadow: none; width: 80px;">
@@ -20,7 +18,7 @@
 		</div>
 	</div>
 {{> successAjax}}
-	<div class="row mt-3">
+	<div class="row mt-3 ">
 		<div class="col-md-12 col-lg-6">
 			<div class="card">
 				<div class="card-body">
@@ -30,7 +28,7 @@
 						<div class="md-form">
 							<i class="fas fa-pencil-alt prefix grey-text"></i>
 							<textarea id="title" class="md-textarea form-control" value="">{{title}}</textarea>
-							<label for="materialFormCardNameEx" class="font-weight-light">Titulo (140)</label>
+							<label for="materialFormCardNameEx" class="font-weight-light">Titulo</label>
 						</div>
 
 						<div class="md-form">
@@ -41,7 +39,7 @@
 						</div>
 
 						<div class="text-center py-4 mt-3">
-							<button class="btn btn-block" style="background: #4e4376; color: #fff; font-weight: 600;"
+							<button class="btn btn-block info-color" style="color: #fff; font-weight: 600;"
 								id="btn-update" type="submit">Actualizar información</button>
 						</div>
 					</form>
@@ -56,33 +54,19 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	{{/each}}
-	<div class="contentNano">
-		<div id="about" class="nano">
-			<div class="content" id="content">
-				{{#each categories}}
-				<button data-filter-item data-filter-name="{{name}}" value="{{name}}" type="submit"
-					class="btn-category">{{name}}</button>
-				{{/each}}
+		<div class="col-md-8">
+			
+			<div class="md-form input-group" style="margin-top: 10%;">
+				<input type="password" readonly class="form-control" style="cursor: default; font-size: 24px;" value="{{userChannel}}" id="inputKey">
+				<label class="materialFormCardPasswordEx" style="font-size: 20px;" for="">Clave de transmisión</label>
+				<div class="input-group-append">
+					<span class="input-group-text md-addon"><i id="eye" class="fas fa-eye" style="cursor: pointer;"></i></span>
+				</div>
 			</div>
+			<label class="badge danger-color p-2"> ¡¡¡ Nunca le dejes tu clave de transmisión a nadie, podría ser la causa de un problema dentro de tu canal !!!</label>
 		</div>
 	</div>
-	{{!-- <div class="contentNano">
-		<div id="about" class="nano">
-			<div class="content" id="content">
-				{{#each categories}}
-				<a href="/users/profile">
-					<button data-filter-item data-filter-name="{{name}}" value="{{name}}" type="submit"
-						class="btn-category">{{name}}</button>
-				</a>
-				{{/each}}
-			</div>
-		</div>
-	</div> --}}
-</div>
-
-<script>
+	<script>
 	$f("player", "http://releases.flowplayer.org/swf/flowplayer-3.2.16.swf", {
 		clip: {
 			url: 'rtmp://localhost:1935/live/{{userChannel}}',
@@ -95,9 +79,31 @@
 		plugins: {
 			influxis: {
 				url: "flowplayer.rtmp-3.2.13.swf",
-
 				netConnectionUrl: 'rtmp://localhost:1935/live/{{userChannel}}'
 			}
 		}
 	});
+
+	$('#eye').on("click", function() {
+		if ($('#eye').hasClass("fa-eye")) {
+			$('#inputKey').attr("type", "text");
+			$('#eye').removeClass("fa-eye").addClass("fa-eye-slash");
+		} else {
+			$('#inputKey').attr("type", "password");
+			$('#eye').removeClass("fa-eye-slash").addClass("fa-eye");
+		}
+	});
 </script>
+	{{/each}}
+	<div class="contentNano">
+		<div id="about" class="nano">
+			<div class="content" id="content">
+				{{#each categories}}
+				<button data-filter-item data-filter-name="{{name}}" value="{{name}}" type="submit"
+					class="btn-category">{{name}}</button>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>
+

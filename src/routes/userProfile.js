@@ -14,7 +14,6 @@ router.post('/users/profile', async (req, res) => {
 	let users = await User.find(); // array de usuarios
 	const channel = await Channel.find({userChannel: userId});
 	let channelId = channel[0]._id;
-	console.log(channelId);
 	for (const userSchema in users) { // recorro todos los usuarios 
 		if (users.hasOwnProperty(userSchema)) { // si existe dentro del array de objetos users, un userSchema 
 			const element = users[userSchema]; // guardo el schema del usuario actual
@@ -30,6 +29,9 @@ router.post('/users/profile', async (req, res) => {
 						let filename = value.filename;
 						await User.findByIdAndUpdate(element._id, {$push: {followed: {'name': name, 'id': id, 'filename': fileName}}});
 						await User.findByIdAndUpdate(element._id, {$pull: {followed: {'name': userLoged, 'id': id, 'filename': filename}}});
+						await User.findByIdAndUpdate(element._id, {$push: {followers: {'name': name, 'id': id, 'filename': fileName}}});
+						await User.findByIdAndUpdate(element._id, {$pull: {followers: {'name': userLoged, 'id': id, 'filename': filename}}});
+
 					}
 				});
 			}
@@ -41,26 +43,26 @@ router.post('/users/profile', async (req, res) => {
 });
 
 router.put('/users/profile', async (req, res) => {
-	const {user, email} = req.body; // parametros recibidos a través de ajax y cogidos del formulario de la vista
-	let userLogedId = req.user._id; // id de usuario de session
-	let userLoged = req.user.user; // usuario de session
-	let users = await User.find(); // array de usuarios
+	const {user, email} = req.body; 
+	let userLogedId = req.user._id; 
+	let userLoged = req.user.user; 
+	let users = await User.find(); 
 	const channel = await Channel.find({userChannel: userLogedId});
 	let channelId = channel[0]._id;
-	for (const userSchema in users) { // recorro todos los usuarios 
-		if (users.hasOwnProperty(userSchema)) { // si existe dentro del array de objetos users, un userSchema 
-			const element = users[userSchema]; // guardo el schema del usuario actual
+	for (const userSchema in users) { 
+		if (users.hasOwnProperty(userSchema)) { 
+			const element = users[userSchema]; 
 			if (element.followed == undefined) {
 				return;
 			} else {
-				element.followed.forEach(async value => { // recorro el array de los seguidos de cada usuario
-					/* comparo el nombre que contiene el array de los seguidos con 
-					el de la persona que va a cambiar su nombre */
+				element.followed.forEach(async value => { 
 					if (value.name == userLoged) { 
 						let id = value.id;
 						let filename = value.filename;
 						await User.findByIdAndUpdate(element._id, {$push: {followed: {'name': user, 'id': id, 'filename': filename}}});
 						await User.findByIdAndUpdate(element._id, {$pull: {followed: {'name': userLoged, 'id': id, 'filename': filename}}});
+						await User.findByIdAndUpdate(element._id, {$push: {followers: {'name': name, 'id': id, 'filename': fileName}}});
+						await User.findByIdAndUpdate(element._id, {$pull: {followers: {'name': userLoged, 'id': id, 'filename': filename}}});
 					}
 				});
 			}

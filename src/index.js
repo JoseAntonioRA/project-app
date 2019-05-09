@@ -72,7 +72,11 @@ app.use(require('./routes/categories'));
 app.use(require('./routes/channel'));
 app.use(require('./routes/userProfile'));
 app.use(require('./routes/disableAccount'));
-app.use(require('./routes/channels-category.js'));
+app.use(require('./routes/channels-category'));
+app.use(require('./routes/followeds'));
+app.use(require('./routes/followers'));
+app.use(require('./routes/searchUsers'));
+
 
 
 
@@ -93,12 +97,14 @@ const config = {
 var nms = new NodeMediaServer(config)
 nms.run();
 
-
 // Configuración del chat.
+let count = 1;
 io.sockets.on('connection', function(socket){
 	socket.on('username', function (username) {
+		
 		if (username == "") {
-			socket.username = "guest";
+			socket.username = "guest" + count;
+			count++;
 		} else {
 			socket.username = username;
 		}
@@ -108,7 +114,8 @@ io.sockets.on('connection', function(socket){
 
 	socket.on("disconnect", function(username) {
 		if (username == "") {
-			username = "guest";
+			username = "guest" + count;
+			count++;
 		}
 		io.emit(
 			"is_online",

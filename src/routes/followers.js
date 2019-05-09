@@ -2,7 +2,8 @@ const router = require('express').Router();
 const User = require('../models/User');
 const Channel = require('../models/Channel');
 
-router.get('/channel/followeds/:id', async (req, res) => {
+
+router.get('/channel/followers/:id', async (req, res) => {
 	let url = req.url;
 	/* let id = url.substring(27); */
 	let id = url.substring(19);
@@ -23,13 +24,11 @@ router.get('/channel/followeds/:id', async (req, res) => {
 		follow = true;
 	}
 	const followeds = userChannel.followed;
+	const followers1 = userChannel.followers;
 	// const userChannel = await User.findById(id);
 	// const followeds = userChannel.followers;
 	// console.log(followeds);
-	res.render('channel/followeds', {id, userChannel, channel, followers, followed, follow, followeds});
+	res.render('channel/followers', {id, userChannel, channel, followers, followed, follow, followeds, followers1});
 });
-
-
-
 
 module.exports = router;

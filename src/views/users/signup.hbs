@@ -1,5 +1,6 @@
 <div class="containerLogin">
 	<h1 class="titulo">Registrate</h1>
+	{{> errors }}
 	<hr class="border1">
 	<form action="" method="POST" class="formulario" name="signup">
 		<div class="form-group">
@@ -20,7 +21,7 @@
 		<div class="form-group">
 			<i class="icono izquierda fa fa-lock"></i><input type="password" value="{{password2}}" name="password2"
 				class="password_btn" placeholder="Repetir Contraseña">
-			<i class="submit-btn fa fa-arrow-right" onclick="signup.submit()"></i>
+			<i class="submit-btn fa fa-arrow-right info-color" onclick="signup.submit()"></i>
 		</div>
 	</form>
 

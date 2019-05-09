@@ -18,15 +18,16 @@
 					<li class="nav-item">
 						<a class="nav-link" id="followedId" href="/channel/followeds/{{userChannel._id}}">Siguiendo {{followed}}</a>
 					</li>
+					
 				</ul>
 			</div>
 		</nav>
 	</div>
 </div>
 <div class="container-fluid">
-	<h3 class="mb-3 mt-3 blackOpacity">Siguiendo</h3>
+	<h3 class="mb-3 mt-3 blackOpacity">Seguidores</h3>
 	<div class="row">
-		{{#each followeds}}
+		{{#each followers1}}
 				<a class="mr-3" href="/channel/channel/{{id}}" style="text-decoration: none; color:#000;">
 					<div class="card" style="width: 16rem;">
 						<div class="mt-2" style="margin: auto;">

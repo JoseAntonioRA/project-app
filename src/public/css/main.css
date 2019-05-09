@@ -69,8 +69,8 @@ a:hover {
 
 .formulario {
 	background: #2b5876;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: -webkit-linear-gradient(to right, #2b5876, #33b5e5);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right,#33b5e5, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	padding: 30px;
 	margin-bottom: 30px;
 }
@@ -88,6 +88,8 @@ a:hover {
 	line-height: 19px;
 	border: none;
 	vertical-align: top;
+	color:#343a40;
+	background: #ededed;
 }
 
 .formulario .icono {
@@ -140,10 +142,10 @@ a:hover {
 	width: 48px;
 	font-size: 18px;
 	line-height: 19px;
-	background: #679863;
+	/* background: #2eaa72; */
 	display: inline-block;
 	color:#fff;
-	background: #769766;
+	/* background: #2eaa72; */
 	cursor: pointer;
 	-webkit-border-radius: 0 3px 3px 0;
 	-moz-border-radius: 0 3px 3px 0;
@@ -303,6 +305,13 @@ img {
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
+.categoriesChannel {
+	width: 130px; 
+	height:173px; 
+	border-radius: 3px 3px 0 0px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
 .chatTextarea {
 	position: absolute;
 	width: 93%;
@@ -310,7 +319,28 @@ img {
 	word-wrap: break-word;
 	padding: 15px;
 	list-style: none;
-	
+}
+
+.banner {
+	background-color: #392e5c;
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.btn-1:hover {
+	background: #fff;
+	border: 1px solid #33b5e5;
+}
+
+.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('/img/spinner.gif') 50% 50% no-repeat rgb(249,249,249);
+	opacity: 1;
 }
 
 

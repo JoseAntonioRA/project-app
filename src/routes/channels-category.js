@@ -12,13 +12,9 @@ router.get('/channels-category/channels/:name', async (req, res) => {
 	}
 	name = name.substr(0, name.length-1);
 	const channels = await Channel.find({category: name});
-
-	console.log(channels);
-	/* const categories = await Channel.find();
-	res.render('categories/categories', {categories}); */
-	res.render('channels-category/channels', {channels, name});
+	const categories = await Categories.find({name: name});
+	const categoryFilename = categories[0].filename;
+	res.render('channels-category/channels', {channels, name, categoryFilename});
 });
-
-
 
 module.exports = router;

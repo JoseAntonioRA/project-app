@@ -23,6 +23,9 @@ router.post('/users/signup', async (req, res) => {
 	if (user.length <= 0) {
 		errors.push({text: 'Por favor, inserte su nombre'});
 	}
+	if (user.length >= 15) {
+		errors.push({text: 'Su alias no puede contener mas de 15 caracteres'});
+	}
 	if (password != password2) {
 		errors.push({text: 'Las contraseñas no coinciden'});
 	}
@@ -40,7 +43,7 @@ router.post('/users/signup', async (req, res) => {
 		} else {
 			const newUser = new User({
 				user, 
-				email, 
+				email,
 				password,
 				filename: 'default-avatar.png',
 			});

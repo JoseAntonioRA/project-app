@@ -1,13 +1,38 @@
+{{!-- <div class="loader"></div> --}}
 <div class="containerLogin">
-	<h1>Hello {{ user.user }}</h1>
-	{{#each channel}}
-	<p>{{title}}</p>
-		{{#if live}}
-			<a href="http://localhost:3030/channel/channel/{{userChannel}}">
-				<h1>Enlace de streamer</h1>
-			</a>
-		{{/if}}
-	{{/each}}
-	
-	<h1>Index</h1>
+	<h1 style="font-family: 'Gugi', cursive; font-size: 70px; color:#33b5e5 ;">WATCH.TV</h1>	
 </div>
+<div class="container-fluid mt-5">
+	<h3 class="mb-3 blackOpacity">Canales en directo</h3>
+	<div class="row">
+		{{#each channels}}
+			{{#if live}}
+				<a id="tmp" class="mr-3" href="/channel/channel/{{userChannel}}" style="text-decoration: none; color:#000;">
+					<div class="card" style="width: 16rem; border-left: 5px solid #f44242;">
+						<div class="mt-2" style="margin: auto;">
+							<img class="rounded-circle z-depth-0" src="/img/uploads/{{filename}}" style="width:130px; height: 130px" alt="Card image cap">
+							<h5 class="card-title text-center mt-2">{{userName}}</h5>
+						</div>
+						<div class="card-body" >
+							<label class="card-text badge mr-2 badge-default p-1">Titulo: {{title}}</label>
+							<label class="card-text badge badge-secondary mr-2 p-1">Categoria: {{category}}</label>
+						</div>
+					</div>
+				</a>
+			{{/if}}
+		{{/each}}
+	</div>
+	<div id="a" class="col-lg-4">No hay canales activos</div>
+</div>
+
+<script>
+	if($('#tmp').hasClass("mr-3")){
+		$('#a').css("display", "none");
+	} else{
+		$('#a').css("display", "block");
+	}
+	
+	$(window).on("load",function() {
+    	$(".loader").fadeOut("slow");
+	});
+</script>

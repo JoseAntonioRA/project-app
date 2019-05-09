@@ -1,4 +1,5 @@
-<div class="row">
+<div class="row" id="test" style="z-index:0;"></div>
+<div class="row" style="z-index:0;">
 	<div class="col-md-9">
 		<nav class="navbar navbar-expand-lg navbar-dark info-color">
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -10,17 +11,17 @@
 					<img src="/img/uploads/{{userChannel.filename}}" class="rounded-circle z-depth-0"
 						alt="avatar image">
 					<li class="nav-item">
-
-						<a class="nav-link" href="#">{{userChannel.user}}
-						</a>
+						<a class="nav-link" href="/channel/channel/{{id}}">{{userChannel.user}}</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" id="followersId" href="#">Seguidores {{followers}}</a>
+						<a class="nav-link" id="followersId" href="/channel/followers/{{userChannel._id}}">Seguidores {{followers}}</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" id="followedId" href="#">Siguiendo {{followed}}</a>
+						<a class="nav-link" id="followedId" href="/channel/followeds/{{userChannel._id}}">Siguiendo {{followed}}</a>
 					</li>
 				</ul>
+				<input type="hidden" id="idUserChannel" value="{{id}}">
+				
 				<ul class="navbar-nav">
 					<form action="/channel/channel/{{userChannel._id}}" id="formFollow">
 						<ul class="navbar-nav ml-auto nav-flex-icons">
@@ -48,34 +49,31 @@
 			</div>
 		</nav>
 	</div>
-	<div class="col-md-3" style="">
-		<ul class="form-control rounded-1 chatTextarea" id="messages" style="background:#fff; height: 740px; overflow-y: scroll;"></ul>
+	<div class="col-md-3 d-none d-md-block" style="">
+		<ul class="form-control rounded-1 chatTextarea" id="messages_{{id}}" style="background:#fff; height: 740px; overflow-y: scroll;"></ul>
 	</div>
-	
 </div>
+
 <div class="row">
 	<div class="col-md-9">
 		<div id="player" style="width:100%;height:700px;"></div>
 	</div>
-	
-</div>
-<div class="row">
-	
 	<div class="col-md-9">
+		{{#if categoryFilename}}
+			<img src="/img/categories/{{categoryFilename}}" style="height: 85px; border: 1px solid rgba(83, 83, 83, 0.8); float:left; margin: 8px;" alt="">
+		{{/if}}
 		{{#each channel}}
-		<div style="width: 100%; border: 1px solid rgb(196, 196, 196, 0.8); padding: 10px;">
-			<h5>Titulo: {{title}}</h5>
+		<div style="width: 100%; border: 1px solid rgb(196, 196, 196, 0.8); padding: 15px;">
+			<label style="margin-left:8px; font-size: 20px;">Titulo: {{title}}</label>
 				<div>
-				<img src="/img/categories/lol.jpg" style="height: 85px; border: 1px solid rgba(83, 83, 83, 0.8);" alt="">
-
-				<label class="badge badge-secondary">categoria: {{category}}</label>
+				<label class="badge badge-secondary" style="margin-left:8px;">categoria: {{category}}</label>
 			</div>
 		</div>
 		{{/each}}
 	</div>
-	<div class="col-md-3">
-		<form class="formChat" id="formChat" action="/channel/channel/{{userChannel}}" method="POST">
-			<textarea placeholder="Enviar un mensaje" id="text" class="form-control" rows="2" style="width: 100%;resize: none;"></textarea>
+	<div class="col-md-3 d-none d-md-block">
+		<form class="formChat" id="formChat_{{id}}" action="/channel/channel/{{id}}" method="POST">
+			<textarea placeholder="Enviar un mensaje" id="text_{{id}}" class="form-control" rows="2" style="width: 100%;resize: none;"></textarea>
 			<button type="submit" class="btn info-color" style="padding: 7px; font-size: 12px; float:right; color:#fff;">Enviar</button>
 		</form>
 	</div>
@@ -99,33 +97,33 @@
 		}
 	});
 	
-	var socket = io.connect('http://localhost:3030');
-	$('#formChat').submit(function(e){
+</script>
+
+<script>
+	let socket = new io();
+	
+	$('#formChat_{{id}}').keypress(function(e){
+		if ( event.which == 13 ) {
+			e.preventDefault();
+			socket.emit('chat_message', $('#text_{{id}}').val());
+			$('#text_{{id}}').val('');
+			return false;
+		}
+	});
+	$('#formChat_{{id}}').submit(function(e){
 		e.preventDefault();
-		socket.emit('chat_message', $('#text').val());
-		$('#text').val('');
+		socket.emit('chat_message', $('#text_{{id}}').val());
+		$('#text_{{id}}').val('');
 		return false;
 	});
 
 	socket.on('chat_message', function(msg){
-		$('#messages').append($('<li>').html(msg));
+		$('#messages_{{id}}').append($('<li>').html(msg));
 	});
 
 	socket.on('is_online', function(username){
-		$('#messages').append($('<li>').html(username));
+		$('#messages_{{id}}').append($('<li>').html(username));
 	});
 	
 	socket.emit('username', "{{user.user}}");
-
-	
-	
-	
-	
-	
-	
-
-	
-
-	
-	
 </script>

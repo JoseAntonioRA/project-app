@@ -1,31 +1,39 @@
 <div class="container-fluid">
-	<h3 class="mb-3 blackOpacity">Canales en directo</h3>
-	<h6>De la categoría: <label class="badge badge-secondary">{{name}}</label></h6>
 	<div class="row">
+		<div class="col-md-6">
+			<img class="categoriesChannel" src="/img/categories/{{categoryFilename}}" style="float:left; margin:10px;" alt="">
+			<h3 class="mb-3 mt-5 blackOpacity">Canales en directo</h3>
+			<h6>De la categoría: <label class="badge badge-secondary">{{name}}</label></h6>
+		</div>
+	</div>
+	<div class="row mt-3">
 		{{#if channels}}
 			{{#each channels}}
 				{{#if live}}
-					<div class="col-md-2">
-						<a href="/channel/channel/{{userChannel}}" style="text-decoration: none; color:#000;">
-							<div class="card" style="width: 16rem;">
-								<div class="mt-2" style="margin: auto;">
-									<img class="rounded-circle z-depth-0" src="/img/uploads/{{filename}}" style="width:130px; height: 130px" alt="Card image cap">
-									<h5 class="card-title text-center mt-2">{{userName}}</h5>
-								</div>
-								<div class="card-body" >
-									
-									<label class="card-text badge mr-2 badge-default p-1">Titulo: {{title}}</label>
-									<label class="card-text badge badge-secondary mr-2 p-1">Categoria: {{category}}</label>
-									
-								</div>
+					<a id="onlineChannels" class="mr-3" href="/channel/channel/{{userChannel}}" style="text-decoration: none; color:#000;">
+						<div class="card" style="width: 16rem; border-left: 5px solid #f44242;">
+							<div class="mt-2" style="margin: auto;">
+								<img class="rounded-circle z-depth-0" src="/img/uploads/{{filename}}" style="width:130px; height: 130px" alt="Card image cap">
+								<h5 class="card-title text-center mt-2">{{userName}}</h5>
 							</div>
-						</a>
-					</div>
+							<div class="card-body" >
+								<label class="card-text badge mr-2 badge-default p-1">Titulo: {{title}}</label>
+								<label class="card-text badge badge-secondary mr-2 p-1">Categoria: {{category}}</label>
+							</div>
+						</div>
+					</a>
 				{{/if}}
 			{{/each}}
-		{{else}}
-		<div class="col-lg-4">No hay canales activos</div>
 		{{/if}}
 	</div>
 </div>
+<div id="offlineChannels" class="col-lg-4">No hay canales activos</div>
+
+<script>
+	if($('#onlineChannels').hasClass("mr-3")){
+		$('#offlineChannels').css("display", "none");
+	} else{
+		$('#offlineChannels').css("display", "block");
+	}
+</script>
 

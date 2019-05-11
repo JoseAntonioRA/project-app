@@ -2,7 +2,7 @@
 
 _Watch.tv aplicación web de retransmisión en directo_
 
-![Watch.tv](https://ibb.co/KG1J54q)
+![channel](https://github.com/JoseAntonioRA/project-app/blob/master/Screenshot_3.png)
 
 ## Comenzando 🚀
 

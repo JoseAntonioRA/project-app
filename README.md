@@ -21,7 +21,7 @@ situamos en la ruta del proyecto, una vez en ella escribimos: //npm install
 para así instalar todos los modúlos y sus dependencias.
 ```
 
-## Una vez instaladas las dependencias, crearemos la base de datos y sus schemas
+### Una vez instaladas las dependencias, crearemos la base de datos y sus schemas
 
 ```
 Crearemos una base de datos llamada app-project: //use project-app.
@@ -31,7 +31,7 @@ Y a continuación crearemos los 3 schemas necesarios:
   * categories --> db.createCollection("categories")
 ```
 
-## Construido con 🛠️
+### Construido con 🛠️
 
 * Editor de texto → Visual Studio Code.
 * Lenguaje de programación → JavaScript tanto Front-End y Back-End, HTML, CSS
@@ -42,12 +42,12 @@ Jquery-ui, Font-Awesome, Flow-Player, Socket.io.
 * Motor de vistas → Express-Handlebars
 * Base de datos → MongoDB (ORM, Mongoose).
 
-## Autores ✒️
+### Autores ✒️
 
 
 * **Jose Antonio** - *Trabajo Inicial* - *Documentación* - [Jose Antonio](https://github.com/JoseAntonioRA)
 
-## Expresiones de Gratitud 🎁
+### Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este proyecto 📢
 * Invita una cerveza 🍺 a alguien del equipo. 

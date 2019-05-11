@@ -20,16 +20,14 @@ router.post('/users/disable-account', isAuthenticated, async (req, res) => {
 			} else {
 				element.followed.forEach(async value => { // recorro el array de los seguidos de cada usuario
 					/* comparo el nombre que contiene el array de los seguidos con 
-					el de la persona que va a cambiar su nombre */
+					el de la persona que va a eliminar su cuenta  */
 					if (value.name == userLoged) {
 						let id = value.id;
 						let filename = value.filename;
 						await User.findByIdAndUpdate(element._id, {$pull: {followed: {'name': userLoged, 'id': id, 'filename': filename}}});
 						await User.findByIdAndUpdate(element._id, {$pull: {followers: {'name': userLoged, 'id': id, 'filename': filename}}});
-						
 					}
 				});
-				
 			}
 		}
 	}

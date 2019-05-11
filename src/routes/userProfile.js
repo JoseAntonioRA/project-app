@@ -20,20 +20,33 @@ router.post('/users/profile', async (req, res) => {
 			if (element.followed == undefined) {
 				return;
 			} else {
+				element.followers.forEach(async value => { // recorro el array de los seguidos de cada usuario
+					/* comparo el nombre que contiene el array de los seguidos con 
+					el de la persona que va a cambiar su nombre */
+					
+					if (value.name == userLoged) {
+						let name = value.name;
+						let id = value.id;
+						let filename = value.filename;
+						await User.findByIdAndUpdate(element._id, {$push: {followers: {'name': name, 'id': id, 'filename': fileName}}});
+						await User.findByIdAndUpdate(element._id, {$pull: {followers: {'name': userLoged, 'id': id, 'filename': filename}}});
+
+					}
+				});
 				element.followed.forEach(async value => { // recorro el array de los seguidos de cada usuario
 					/* comparo el nombre que contiene el array de los seguidos con 
 					el de la persona que va a cambiar su nombre */
+					
 					if (value.name == userLoged) {
 						let name = value.name;
 						let id = value.id;
 						let filename = value.filename;
 						await User.findByIdAndUpdate(element._id, {$push: {followed: {'name': name, 'id': id, 'filename': fileName}}});
 						await User.findByIdAndUpdate(element._id, {$pull: {followed: {'name': userLoged, 'id': id, 'filename': filename}}});
-						await User.findByIdAndUpdate(element._id, {$push: {followers: {'name': name, 'id': id, 'filename': fileName}}});
-						await User.findByIdAndUpdate(element._id, {$pull: {followers: {'name': userLoged, 'id': id, 'filename': filename}}});
 
 					}
 				});
+				
 			}
 		}
 	}
@@ -55,14 +68,24 @@ router.put('/users/profile', async (req, res) => {
 			if (element.followed == undefined) {
 				return;
 			} else {
-				element.followed.forEach(async value => { 
-					if (value.name == userLoged) { 
+				element.followers.forEach(async value => {
+					console.log(value.name + " " + userLoged);
+					if (value.name == userLoged) {
+						let name = value.name;
+						let id = value.id;
+						let filename = value.filename;
+						await User.findByIdAndUpdate(element._id, {$push: {followers: {'name': user, 'id': id, 'filename': filename}}});
+						await User.findByIdAndUpdate(element._id, {$pull: {followers: {'name': userLoged, 'id': id, 'filename': filename}}});
+					}
+				});
+				element.followed.forEach(async value => {
+					console.log(value.name + " " + userLoged);
+					if (value.name == userLoged) {
+						let name = value.name;
 						let id = value.id;
 						let filename = value.filename;
 						await User.findByIdAndUpdate(element._id, {$push: {followed: {'name': user, 'id': id, 'filename': filename}}});
 						await User.findByIdAndUpdate(element._id, {$pull: {followed: {'name': userLoged, 'id': id, 'filename': filename}}});
-						await User.findByIdAndUpdate(element._id, {$push: {followers: {'name': name, 'id': id, 'filename': fileName}}});
-						await User.findByIdAndUpdate(element._id, {$pull: {followers: {'name': userLoged, 'id': id, 'filename': filename}}});
 					}
 				});
 			}

@@ -29,7 +29,7 @@ Y a continuación crearemos los 3 schemas necesarios:
   * users → ```db.createCollection("users")```
   * channels → ```db.createCollection("channels")```
   * categories → ```db.createCollection("categories")```
-
+  * *Pronto añadiré un script el cuál crea las categorias necesarias dentro del schema categories*
 
 ### Construido con 🛠️
 

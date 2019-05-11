@@ -15,21 +15,19 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 ### Configuración ⚙️
 
-```
 Una vez instalado lo dicho anteriormente, iniciamos un terminal y nos
 situamos en la ruta del proyecto, una vez en ella escribimos: //npm install
 para así instalar todos los modúlos y sus dependencias.
-```
+
 
 ### Una vez instaladas las dependencias, crearemos la base de datos y sus schemas
 
-```
 Crearemos una base de datos llamada app-project: //use project-app.
 Y a continuación crearemos los 3 schemas necesarios:
   * users --> db.createCollection("users")
   * channels --> db.createCollection("channels")
   * categories --> db.createCollection("categories")
-```
+
 
 ### Construido con 🛠️
 
